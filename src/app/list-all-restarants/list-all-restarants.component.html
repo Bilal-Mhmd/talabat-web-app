@@ -1,0 +1,12 @@
+<p>list-all-restarants works!</p>
+<br>
+<div>
+    <ul *ngFor="let res of restaurants">
+        <li>{{res.name}}</li>
+        <li>{{res.city}}</li>
+        <li>{{res.street}}</li>
+        <!--routerLink="/edit_restaurant" -->
+        <button class="nav-item nav-link-edit" (click)="update()" >Update</button>
+        <edit-restaurant-form id="show_button"></edit-restaurant-form>
+    </ul>
+</div>
