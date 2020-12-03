@@ -17,6 +17,7 @@ export class ListAllRestarantsComponent implements OnInit {
   ngOnInit(): void {
     this.restaurants = this.restaurantDataService.getRestaurants();
   }
+  
 
   update() {
     document.getElementById('show_button').style.display= 'block' ;
