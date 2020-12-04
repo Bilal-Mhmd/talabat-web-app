@@ -12,17 +12,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListAllRestarantsComponent implements OnInit {
   
   restaurants: Restaurant[] = [];
-  
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private restaurantDataService: RestaurantsDataService) {
-    
   }
   
 
   ngOnInit(): void {
     this.restaurants = this.restaurantDataService.getRestaurants();
+    this.restaurants.forEach(function (res, index) {
+      res.id = index;
+    });
+    console.log(this.restaurants);
   }
   
 
