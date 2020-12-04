@@ -1,42 +1,98 @@
 <form #f="ngForm" (ngSubmit)="addRestaurant(f)" class="my-form">
     <div class="form-group">
-        <label for="userName">Name</label>
-        <input ngModel name="userName" #name="ngModel" id="userName" type="text" class="form-control" required maxlength="40"  pattern="[A-Za-z\.\_\ ]+">
-      <!-- <div class="alert alert-danger" *ngIf="name.dirty!==true && name.touched">Name is required</div>-->
+        <label for="userName">
+            Name
+        </label>
+        <input 
+            ngModel 
+            name="userName"
+            #name="ngModel" 
+            id="userName" 
+            type="text" 
+            class="form-control" 
+            required maxlength="40"  
+            pattern="[A-Za-z\.\_\ ]+"
+        >
         <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
-            <div *ngIf="name.errors.required">Name is required</div>
-            <div *ngIf="name.errors.pattern">The name doesn't match the pattern!</div>
+            <div *ngIf="name.errors.required">
+                Name is required
+            </div>
+            <div *ngIf="name.errors.pattern">
+                The name doesn't match the pattern!
+            </div>
         </div>
 
     </div>
     <div class="form-group">
         <label for="city">City</label>
-        <select ngModel name="city" #city="ngModel" id="city" class="form-control" required>
+        <select 
+            ngModel 
+            name="city" 
+            #city="ngModel" 
+            id="city" 
+            class="form-control" 
+            required
+        >
             <option value="hebron">Hebron</option>
             <option value="bethlehem">Bethlehem</option>
             <option value="jerusalem">Jerusalem</option>
             <option value="ramallah">Ramallah</option>
         </select>
-        <div class="alert alert-danger" *ngIf="city.invalid && city.touched">city is required</div>
+        <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
+            city is required
+        </div>
     </div>
     <div class="form-group">
         <label for="street">Street</label>
-        <input ngModel name="street" #street="ngModel" type="text" id="street" class="form-control" required>
-        <div class="alert alert-danger" *ngIf="street.invalid && street.touched">street is required</div>
+        <input 
+        ngModel 
+        name="street" 
+        #street="ngModel" 
+        type="text" 
+        id="street" 
+        class="form-control" 
+        required>
+        <div 
+        class="alert alert-danger" *ngIf="street.invalid && street.touched">
+            street is required
+        </div>
 
     </div>
     <div class="form-group">
         <label for="latitude">Latitude</label>
-        <input ngModel name="latitude" id="latitude" type="number" class="form-control">
+        <input 
+            ngModel 
+            name="latitude" 
+            id="latitude" 
+            type="number" 
+            class="form-control"
+        >
     </div>
     <div class="form-group">
         <label for="longitude">Longitude</label>
-        <input ngModel name="longitude" id="longitude" type="number" class="form-control">
+        <input 
+            ngModel 
+            name="longitude" 
+            id="longitude" 
+            type="number" 
+            class="form-control"
+        >
     </div>
     <div class="form-group">
         <label for="image">Image URL</label>
-        <input ngModel name="image" id="image" type="string" class="form-control">
+        <input 
+            ngModel 
+            name="image" 
+            id="image" 
+            type="string" 
+            class="form-control"
+        >
     </div>
-    <input class="btn btn-primary" type="submit" value="Submit" [disabled]="f.invalid">
+    <input 
+        class="btn btn-primary" 
+        type="submit" 
+        value="Submit" 
+        [disabled]="f.invalid"
+    >
 
 </form>
