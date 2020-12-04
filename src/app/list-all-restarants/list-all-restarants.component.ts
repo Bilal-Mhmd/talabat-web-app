@@ -27,9 +27,8 @@ export class ListAllRestarantsComponent implements OnInit {
     console.log(this.restaurants);
   }
   
-
-  updateRestaurant() {
-    this._router.navigateByUrl('/edit_restaurant');
+  updateRestaurant(id:number) {
+    this._router.navigateByUrl(`/edit_restaurant/${id}`);
   }
 }
 

@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'add_item', component: AddMenuItemFormComponent},
   {path: 'add_restaurant', component: AddRestaurantFormComponent },
   {path:'edit_menue_item', component:EditMenuItemFormComponent},
-  {path:'edit_restaurant', component:EditRestaurantFormComponent},
+  {path:'edit_restaurant/:id', component:EditRestaurantFormComponent},
   {path:'list_restaurants', component:ListAllRestarantsComponent},
   {path: 'list_menu_items', component: ListMenuItemsComponent },
   {path: 'list_ordered_menu_items', component: ListOrderedMenuItemsComponent },

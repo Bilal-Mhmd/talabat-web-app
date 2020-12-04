@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Restaurant } from '../restaurant';
 import { RestaurantsDataService } from '../restaurants-data.service';
 
@@ -10,18 +11,30 @@ import { RestaurantsDataService } from '../restaurants-data.service';
 })
 export class EditRestaurantFormComponent implements OnInit {
 
-  @Input() restaurant: Restaurant;
+  restaurant: Restaurant;
+  _id: number;
 
-  constructor(private restaurantDataService: RestaurantsDataService) { 
+  constructor(
+    private route:ActivatedRoute,
+    private restaurantDataService: RestaurantsDataService) { 
 
   }
 
   ngOnInit(): void {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this._id = +params['id'];
+        }
+      );
   }
 
   editRestaurant(form : NgForm){
-    this.restaurant =  new Restaurant(form.value.userName, form.value.city, form.value.street,
-                                          form.value.latitude, form.value.longitude, form.value.image);
+    this.restaurant = new Restaurant(
+      form.value.userName, form.value.city, form.value.street,
+      form.value.latitude, form.value.longitude, form.value.image
+    );
+    this.restaurantDataService.restaurants[this._id] = this.restaurant;
   }
   
 
