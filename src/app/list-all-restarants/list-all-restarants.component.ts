@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { from } from 'rxjs';
 import { Restaurant } from '../restaurant';
 import { RestaurantsDataService } from '../restaurants-data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-all-restarants',
@@ -8,9 +10,14 @@ import { RestaurantsDataService } from '../restaurants-data.service';
   styleUrls: ['./list-all-restarants.component.css']
 })
 export class ListAllRestarantsComponent implements OnInit {
-  restaurants : Restaurant[] = [];
-  constructor(private restaurantDataService: RestaurantsDataService) {
-
+  
+  restaurants: Restaurant[] = [];
+  
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private restaurantDataService: RestaurantsDataService) {
+    
   }
   
 
@@ -19,8 +26,8 @@ export class ListAllRestarantsComponent implements OnInit {
   }
   
 
-  update() {
-    document.getElementById('show_button').style.display= 'block' ;
+  updateRestaurant() {
+    this._router.navigateByUrl('/edit_restaurant');
   }
 }
 

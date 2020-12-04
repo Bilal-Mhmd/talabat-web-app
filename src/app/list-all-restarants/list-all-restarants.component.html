@@ -6,7 +6,13 @@
         <li>{{res.city}}</li>
         <li>{{res.street}}</li>
         <!--routerLink="/edit_restaurant" -->
-        <button class="nav-item nav-link-edit" (click)="update()" >Update</button>
-        <edit-restaurant-form id="show_button"></edit-restaurant-form>
+        <div class="panel-footer">
+            <button class="btn btn-primary" (click)="updateRestaurant()" >
+                Update
+            </button>
+            <button class="btn btn-danger">
+                Delete
+            </button>
+        </div>
     </ul>
 </div>
