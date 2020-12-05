@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./list-all-restarants.component.css']
 })
 export class ListAllRestarantsComponent implements OnInit {
-  
+  rating:number;
   restaurants: Restaurant[] = [];
   constructor(
     private _route: ActivatedRoute,
@@ -29,6 +29,13 @@ export class ListAllRestarantsComponent implements OnInit {
   
   updateRestaurant(id:number) {
     this._router.navigateByUrl(`/edit_restaurant/${id}`);
+  }
+  ShowMenu(id:number){
+    this._router.navigateByUrl(`list_menu_items/${id}`);
+  }
+  showOrders(res_id:number)
+  {
+    this._router.navigateByUrl(`list_orders/${res_id}`);
   }
 }
 

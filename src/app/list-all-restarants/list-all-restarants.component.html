@@ -1,18 +1,58 @@
-<p>list-all-restarants works!</p>
-<br>
-<div>
-    <ul *ngFor="let res of restaurants">
-        <li>{{res.name}}</li>
-        <li>{{res.city}}</li>
-        <li>{{res.street}}</li>
-        <!--routerLink="/edit_restaurant" -->
-        <div class="panel-footer">
-            <button class="btn btn-primary" (click)="updateRestaurant(res.id)" >
-                Update
-            </button>
-            <button class="btn btn-danger">
-                Delete
-            </button>
+
+
+<div class="container-fluid">
+    <div class="row flex-row" >
+        <div 
+    class="card" 
+    style="width: 18rem;" 
+    *ngFor="let res of restaurants"
+    >
+        <img
+         class="card-img-top"
+         src='https://www.urtrips.com/wp-content/uploads/2019/06/Kebap%C3%A7%C4%B1-Mahmut-Restaurant-Istanbul-0.jpg' 
+         alt="Card image cap"
+        >
+        <div class="card-body">
+            <h5 class="card-title">{{res.name}}</h5>
+            <p class="card-text">
+                {{res.city}}, 
+                {{res.street}}
+            </p>
+
+            <div class="list-group">
+                <button class="btn btn-outline-primary" (click)="updateRestaurant(res.id)" >
+                    Update
+                </button>
+                <button class="btn btn-outline-primary" (click)="ShowMenu(res.id)">
+                    show menu items
+                </button>
+                <button class="btn btn-outline-primary" (click)="showOrders(res.id)">
+                    show Orders
+                </button>
+                <button class="btn btn-outline-warning" (click)="rateRest(res.id)">
+                    rate
+                </button>
+                <button class="btn btn-outline-danger">
+                    Delete
+                </button>
+                
+              </div>
+
+            <div class="panel-footer">
+               
+               
+            </div>
         </div>
-    </ul>
+  </div>
+
+       
+        ...
+    </div>
 </div>
+
+
+
+
+
+
+

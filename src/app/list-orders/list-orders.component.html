@@ -1,1 +1,12 @@
-<p>list-orders works!</p>
+{{_id}}
+<div *ngFor="let i of _menu_items">
+    {{i.name}}
+    {{i.descr}}
+    {{i.price}}
+    {{i.image}}
+    <div *ngIf="(i.ordered)"><button class="btn btn-primary" (click)="orderMenuItem(i.id)" >Order</button></div>
+</div>
+<!--<h1>total price from this restaurant: {{total price}}</h1>-->
+<div>
+    <button class="btn btn-primary" (click)="goTOMain()" >Back to List</button>
+</div>

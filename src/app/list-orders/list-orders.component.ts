@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MenuItemsDataService } from '../menu-items-data.service';
+import { MenuItem } from '../MenuItem';
+import { OrdersListDataService } from '../orders-list-data.service';
 
 @Component({
   selector: 'app-list-orders',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListOrdersComponent implements OnInit {
 
-  constructor() { }
+  _menu_items : MenuItem[]=[];
+  _id:number;
+  constructor(
+    private route: ActivatedRoute,
+    private _router: Router,
+    private MenuItemsService:MenuItemsDataService,
+    private OrdersListService:OrdersListDataService){}
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
 
+      this.route.params.subscribe(
+          (params: Params) => {this._id = +params['resid'];}
+        );
+        this._menu_items=this.OrdersListService.getOrdersOfRes(this._id);
+    }
+    orderMenuItem(id:number){
+      let _MenuItem:MenuItem = this.MenuItemsService.getMenuItem(this._id,id);
+      this.OrdersListService.addOrder(_MenuItem);
+    }
+    deleteOrderMenuItem(id:number){
+      let _MenuItem:MenuItem = this.MenuItemsService.getMenuItem(this._id,id);
+      this.OrdersListService.deleteOrder(_MenuItem);
+    }
+
+    goTOMain(){
+      this._router.navigateByUrl(`list_restaurants`);
+    }
 }

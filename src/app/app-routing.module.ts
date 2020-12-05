@@ -10,14 +10,14 @@ import { ListOrderedMenuItemsComponent } from './list-ordered-menu-items/list-or
 import { ListOrdersComponent } from './list-orders/list-orders.component';
 
 const routes: Routes = [
-  {path:'add_item', component: AddMenuItemFormComponent},
+  {path:'add_item/:resid', component: AddMenuItemFormComponent},
   {path: 'add_restaurant', component: AddRestaurantFormComponent },
-  {path:'edit_menue_item', component:EditMenuItemFormComponent},
+  {path:'edit_menu_item/:resid/:id', component:EditMenuItemFormComponent},
   {path:'edit_restaurant/:id', component:EditRestaurantFormComponent},
   {path:'list_restaurants', component:ListAllRestarantsComponent},
-  {path: 'list_menu_items', component: ListMenuItemsComponent },
+  {path: 'list_menu_items/:resid', component: ListMenuItemsComponent },
   {path: 'list_ordered_menu_items', component: ListOrderedMenuItemsComponent },
-  {path:'list_orders', component:ListOrdersComponent}
+  {path:'list_orders/:resid', component:ListOrdersComponent}
 ];
 
 @NgModule({

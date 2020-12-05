@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Restaurant } from '../restaurant';
 import { RestaurantsDataService } from '../restaurants-data.service';
 
@@ -10,7 +11,9 @@ import { RestaurantsDataService } from '../restaurants-data.service';
 })
 export class AddRestaurantFormComponent implements OnInit {
 
-  constructor(private restaurantsDataService: RestaurantsDataService) {
+  constructor(
+    private restaurantsDataService: RestaurantsDataService,
+    private _router:Router) {
 
    }
 
@@ -22,7 +25,9 @@ export class AddRestaurantFormComponent implements OnInit {
       new Restaurant(form.value.userName, form.value.city, form.value.street,
         form.value.latitude, form.value.longitude, form.value.image));
     
-    console.log(form);
+    this._router.navigate(['/list_restaurants']);
+    
+    
   }
 
 }

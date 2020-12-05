@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AngularFireModule } from '@angular/fire'
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+//import { AngularFireModule } from '@angular/fire'
+//import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +32,7 @@ import { ListOrdersComponent } from './list-orders/list-orders.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    /*
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyCnHbqTR0R1FCPrpCMTLPTyfugGcshC_BA",
       authDomain: "bilal-demo-43131.firebaseapp.com",
@@ -43,6 +44,7 @@ import { ListOrdersComponent } from './list-orders/list-orders.component';
       measurementId: "G-FLCTRTD514"
     }),
     AngularFireDatabaseModule,
+  */
   ],
   providers: [],
   bootstrap: [AppComponent]

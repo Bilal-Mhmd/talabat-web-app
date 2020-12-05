@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Restaurant } from '../restaurant';
 import { RestaurantsDataService } from '../restaurants-data.service';
 
@@ -16,6 +16,7 @@ export class EditRestaurantFormComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
+    private _router:Router,
     private restaurantDataService: RestaurantsDataService) { 
 
   }
@@ -35,6 +36,7 @@ export class EditRestaurantFormComponent implements OnInit {
       form.value.latitude, form.value.longitude, form.value.image
     );
     this.restaurantDataService.restaurants[this._id] = this.restaurant;
+    this._router.navigateByUrl(`list_restaurants`);
   }
   
 
