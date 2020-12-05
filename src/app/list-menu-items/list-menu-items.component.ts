@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params,Router } from '@angular/router';
 //import { Console } from 'console';
 import { Observable } from 'rxjs';
+import { MenuItem } from '../models/MenuItem';
 import { MenuItemsDataService } from '../services/menu-items-data.service';
-import { MenuItem } from '../MenuItem';
 import { OrdersListDataService } from '../services/orders-list-data.service';
 
 

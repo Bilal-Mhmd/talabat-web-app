@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Restaurant } from '../models/restaurant';
-import { RestaurantsDataService } from '../restaurants-data.service';
+import { RestaurantsDataService } from '../services/restaurants-data.service';
 
 @Component({
   selector: 'app-add-restaurant-form',

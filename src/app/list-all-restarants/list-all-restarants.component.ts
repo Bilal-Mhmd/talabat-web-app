@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { from } from 'rxjs';
 import { Restaurant } from '../models/restaurant';
-import { RestaurantsDataService } from '../restaurants-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RestaurantsDataService } from '../services/restaurants-data.service';
 
 @Component({
   selector: 'app-list-all-restarants',

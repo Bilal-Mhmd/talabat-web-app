@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MenuItem } from '../models/MenuItem';
 import { MenuItemsDataService } from '../services/menu-items-data.service';
-import { MenuItem } from '../MenuItem';
 
 @Component({
   selector: 'app-edit-menu-item-form',

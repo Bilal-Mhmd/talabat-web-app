@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Restaurant } from '../models/restaurant';
-import { RestaurantsDataService } from '../restaurants-data.service';
+import { RestaurantsDataService } from '../services/restaurants-data.service';
 
 @Component({
   selector: 'edit-restaurant-form',
