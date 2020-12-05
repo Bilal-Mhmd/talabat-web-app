@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from './menu-item';
+import { MenuItem } from '../models/MenuItem';
 
 @Injectable({
   providedIn: 'root'
