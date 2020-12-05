@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MenuItemsDataService } from '../menu-items-data.service';
+import { MenuItemsDataService } from '../services/menu-items-data.service';
 import { MenuItem } from '../MenuItem';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 @Component({

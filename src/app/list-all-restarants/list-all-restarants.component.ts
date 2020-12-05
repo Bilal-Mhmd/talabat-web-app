@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { from } from 'rxjs';
-import { Restaurant } from '../restaurant';
+import { Restaurant } from '../models/restaurant';
 import { RestaurantsDataService } from '../restaurants-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 

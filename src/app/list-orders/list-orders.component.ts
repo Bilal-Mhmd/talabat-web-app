@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MenuItemsDataService } from '../menu-items-data.service';
+import { MenuItemsDataService } from '../services/menu-items-data.service';
 import { MenuItem } from '../MenuItem';
-import { OrdersListDataService } from '../orders-list-data.service';
+import { OrdersListDataService } from '../services/orders-list-data.service';
 
 @Component({
   selector: 'app-list-orders',

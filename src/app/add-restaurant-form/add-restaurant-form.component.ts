@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Restaurant } from '../restaurant';
+import { Restaurant } from '../models/restaurant';
 import { RestaurantsDataService } from '../restaurants-data.service';
 
 @Component({
