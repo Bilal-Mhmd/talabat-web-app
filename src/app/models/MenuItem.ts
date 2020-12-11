@@ -9,9 +9,7 @@ export class MenuItem {
       public rest_id?: number,
       public rate?:number,
       public ordered?:boolean
-      ) 
-    
-    {
+      ){
     }
   }
   

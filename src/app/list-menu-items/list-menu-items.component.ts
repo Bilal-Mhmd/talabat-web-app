@@ -40,13 +40,17 @@ constructor(
     this._router.navigateByUrl(`/add_item/${this._id}`);
     console.log("navigation to menu item with res id "+this._id);
   }
-  orderMenuItem(id:number){
-    let _MenuItem:MenuItem = this.MenuItemsService.getMenuItem(this._id,id);
+  orderMenuItem(id: number) {
+
+    this.MenuItemsService.menuItems[this._id].ordered = true;
+    let _MenuItem: MenuItem = this.MenuItemsService.getMenuItem(this._id, id);
     this.OrdersListService.addOrder(_MenuItem);
+
   }
-  deleteOrderMenuItem(id:number){
+  deleteOrderMenuItem(id: number) {
     let _MenuItem:MenuItem = this.MenuItemsService.getMenuItem(this._id,id);
     this.OrdersListService.deleteOrder(_MenuItem);
+
   }
 
 }
