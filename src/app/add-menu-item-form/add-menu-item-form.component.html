@@ -1,16 +1,13 @@
-{{ _id }}
 <form #f="ngForm" (ngSubmit)="addMenuItem(f)" class="my-form">
-    {{f.value | json }}
-
     <div class="form-group">
-        <label for="userName">
-            Name
+        <label for="mealName">
+            Meal Name
         </label>
         <input 
             ngModel
             name="MIName"
             #name="ngModel" 
-            id="userName" 
+            id="mealName" 
             type="text" 
             class="form-control" 
             required maxlength="40"  

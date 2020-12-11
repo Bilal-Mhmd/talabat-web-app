@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { AngularFireDatabase } from '@angular/fire/database';
 import { ActivatedRoute, Params,Router } from '@angular/router';
-//import { Console } from 'console';
-import { Observable } from 'rxjs';
 import { MenuItem } from '../models/MenuItem';
 import { MenuItemsDataService } from '../services/menu-items-data.service';
 import { OrdersListDataService } from '../services/orders-list-data.service';
@@ -17,14 +14,6 @@ export class ListMenuItemsComponent implements OnInit {
 
   _menu_items : MenuItem[]=[];
 
-  /*
-  menuItems : Observable<any[]>;
-  _menuItems: MenuItem[]=[];
-  constructor(db: AngularFireDatabase) { 
-    this.menuItems = db.list('/menuItems').valueChanges();
-    console.log(this.menuItems);
-  }
-*/
 
 _id:number;
 
