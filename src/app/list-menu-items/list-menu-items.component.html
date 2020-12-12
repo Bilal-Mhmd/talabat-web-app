@@ -29,7 +29,7 @@
                         <ng-template #notordered>
                             <button
                                 class="btn btn-primary btn-lg btn-block" 
-                                (click)="orderMenuItem(i.id)" 
+                                (click)="orderMenuItem(i.id, $event.target)" 
                                 >       
                             Order
                             </button>
@@ -37,7 +37,7 @@
                         <ng-template #ordered>
                             <button 
                                 class="btn btn-primary btn-lg btn-block"
-                                (click)="deleteOrderMenuItem(i.id)" 
+                                (click)="deleteOrderMenuItem(i.id, $event.target)" 
                                 >
                             delete order
                             </button>
@@ -57,4 +57,8 @@ class="btn btn-dark btn-lg btn-block"
 (click)="addMenuItem()" 
 >
 ADD MENU ITEM
+</button>
+
+<button class="btn btn-dark btn-lg btn-block" (click)="showOrders()">
+    show Orders
 </button>
