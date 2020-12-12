@@ -55,8 +55,6 @@ constructor(
     let delOrder: MenuItem = this._menu_items[id];
     this.ordersListService.Orders.splice(id, 1);
     //element.textContent = "Order";
-
-
   }
 
   showOrders() {

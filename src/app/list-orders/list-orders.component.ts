@@ -11,31 +11,39 @@ import { OrdersListDataService } from '../services/orders-list-data.service';
 })
 export class ListOrdersComponent implements OnInit {
 
-  _menu_items : MenuItem[]=[];
+  _orsers : MenuItem[]=[];
   _id:number;
   constructor(
     private route: ActivatedRoute,
     private _router: Router,
-    private MenuItemsService:MenuItemsDataService,
-    private OrdersListService:OrdersListDataService){}
+    private menuItemsService:MenuItemsDataService,
+    private ordersListService:OrdersListDataService){}
 
     ngOnInit(): void {
 
       this.route.params.subscribe(
           (params: Params) => {this._id = +params['resid'];}
         );
-        this._menu_items=this.OrdersListService.getOrdersOfRes(this._id);
+        this._orsers=this.ordersListService.getOrdersOfRes(this._id);
     }
-    orderMenuItem(id:number){
-      let _MenuItem:MenuItem = this.MenuItemsService.getMenuItem(this._id,id);
-      this.OrdersListService.addOrder(_MenuItem);
+    orderMenuItem(id: number, element) {
+      this.menuItemsService.menuItems[id].ordered = true;
+      let newOrder: MenuItem = this._orsers[id];
+      this.ordersListService.Orders.push(newOrder);
+      //element.textContent = "Cancel Order";
     }
-    deleteOrderMenuItem(id:number){
-      let _MenuItem:MenuItem = this.MenuItemsService.getMenuItem(this._id,id);
-      this.OrdersListService.deleteOrder(_MenuItem);
+  
+    deleteOrderMenuItem(id: number, element) {
+      this.menuItemsService.menuItems[id].ordered = false;
+      let delOrder: MenuItem = this._orsers[id];
+      this.ordersListService.Orders.splice(id, 1);
+      //element.textContent = "Order";
     }
 
     goTOMain(){
       this._router.navigateByUrl(`list_restaurants`);
+    }
+  backToMenu() {
+    this._router.navigateByUrl(`list_menu_items/${this._id}`)
     }
 }

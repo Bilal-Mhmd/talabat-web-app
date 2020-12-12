@@ -1,8 +1,68 @@
-<div *ngFor="let i of _menu_items">
-   
-    
-    
-    <div>
-        <button class="btn btn-primary" (click)="goTOMain()" >Back to List</button>
+<div class="container-fluid">
+    <div class="row flex-row" >
+        <div *ngFor="let i of _orsers">
+            <div class="card" style="width: 18rem;">
+                <img 
+                    class="card-img-top"
+                    [src]='i.image' alt="Card image cap"
+                >
+                <div class="card-body">
+                <h5 class="card-title">
+                    {{i.name}}
+                </h5>
+                <p class="card-text">
+                    {{i.descr}}
+                </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <button 
+                        class="btn btn-primary btn-lg btn-block"
+                        (click)="editMenuItem(i.id)"
+                        >
+                    Update
+                    </button>
+                </li>
+                <li class="list-group-item">
+                    <div *ngIf=" i.ordered; then ordered else notordered"></div>
+                        <ng-template #notordered>
+                            <button
+                                class="btn btn-primary btn-lg btn-block" 
+                                (click)="orderMenuItem(i.id, $event.target)" 
+                                >       
+                            Order
+                            </button>
+                        </ng-template>
+                        <ng-template #ordered>
+                            <button 
+                                class="btn btn-primary btn-lg btn-block"
+                                (click)="deleteOrderMenuItem(i.id, $event.target)" 
+                                >
+                            delete order
+                            </button>
+                        </ng-template>
+                </li>
+                <li class="list-group-item">  
+
+                </li>
+                </ul>
+            </div>
+        </div>   
     </div>
-<
+</div>
+    
+<div>
+    <button 
+        class="btn btn-dark btn-lg btn-block" 
+        (click)="goTOMain()" 
+        >
+        Back to Restaurants List
+    </button>
+
+    <button 
+        class="btn btn-dark btn-lg btn-block" 
+        (click)="backToMenu()" 
+        >
+        Back to Menu List
+    </button>
+</div>
