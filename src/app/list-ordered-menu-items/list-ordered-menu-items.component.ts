@@ -23,21 +23,12 @@ export class ListOrderedMenuItemsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.menuItemsService.menuItems.forEach(
-      element => {
-        if (element.ordered) {
-          this._orders.push(element);
-        }
-      }
-    );
+    
     this._restaurants = this.restaurantsListService.restaurants;
   }
 
-  deleteOrderMenuItem(id: number, element, res) {
-    this.menuItemsService.menuItems[id].ordered = false;
-    let delOrder: MenuItem = this._orders[id];
-    this.ordersListService.deleteOrder(res.id, delOrder);
-    //element.textContent = "Order";
+  deleteOrderMenuItem(id: number, res:Restaurant) {
+  
   }
 
   getResOrders(res: Restaurant): MenuItem[]{

@@ -2,7 +2,7 @@
         <h2>Orders of {{res.name}}</h2>
     <div class="container-fluid">
         <div class="row flex-row" >
-            <div *ngFor="let i of etResOrders(res)">
+            <div *ngFor="let i of getResOrders(res)">
                 <div class="card" style="width: 18rem;">
                     <img 
                         class="card-img-top"
@@ -25,7 +25,7 @@
                             <ng-template #notordered>
                                 <button
                                     class="btn btn-primary btn-lg btn-block" 
-                                    (click)="orderMenuItem(i.id, $event.target)" 
+                                    (click)="orderMenuItem(i.id, res)" 
                                     >       
                                 Order
                                 </button>
@@ -33,7 +33,7 @@
                             <ng-template #ordered>
                                 <button 
                                     class="btn btn-primary btn-lg btn-block"
-                                    (click)="deleteOrderMenuItem(i.id, $event.target)" 
+                                    (click)="deleteOrderMenuItem(i.id, res)" 
                                     >
                                 delete order
                                 </button>
@@ -47,7 +47,8 @@
             </div>   
         </div>
     </div>
-        
+</div>     
+
     <div>
         <button 
             class="btn btn-dark btn-lg btn-block" 
@@ -64,4 +65,3 @@
         </button>
     </div>
 
-</div>
