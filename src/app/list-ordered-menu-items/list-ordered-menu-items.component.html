@@ -1,2 +1,67 @@
-<p>list-ordered-menu-items works!</p>
+<div *ngFor="let res of _restaurants">
+        <h2>Orders of {{res.name}}</h2>
+    <div class="container-fluid">
+        <div class="row flex-row" >
+            <div *ngFor="let i of etResOrders(res)">
+                <div class="card" style="width: 18rem;">
+                    <img 
+                        class="card-img-top"
+                        [src]='i.image' alt="Card image cap"
+                    >
+                    <div class="card-body">
+                    <h5 class="card-title">
+                        {{i.name}}
+                    </h5>
+                    <p class="card-text">
+                        {{i.descr}}
+                    </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+        
+                    </li>
+                    <li class="list-group-item">
+                        <div *ngIf=" i.ordered; then ordered else notordered"></div>
+                            <ng-template #notordered>
+                                <button
+                                    class="btn btn-primary btn-lg btn-block" 
+                                    (click)="orderMenuItem(i.id, $event.target)" 
+                                    >       
+                                Order
+                                </button>
+                            </ng-template>
+                            <ng-template #ordered>
+                                <button 
+                                    class="btn btn-primary btn-lg btn-block"
+                                    (click)="deleteOrderMenuItem(i.id, $event.target)" 
+                                    >
+                                delete order
+                                </button>
+                            </ng-template>
+                    </li>
+                    <li class="list-group-item">  
 
+                    </li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </div>
+        
+    <div>
+        <button 
+            class="btn btn-dark btn-lg btn-block" 
+            (click)="goTOMain()" 
+            >
+            Back to Restaurants List
+        </button>
+
+        <button 
+            class="btn btn-dark btn-lg btn-block" 
+            (click)="backToMenu()" 
+            >
+            Back to Menu List
+        </button>
+    </div>
+
+</div>

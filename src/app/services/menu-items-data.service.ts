@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { element } from 'protractor';
 
 import { MenuItem } from '../models/MenuItem';
 @Injectable({
@@ -9,22 +10,29 @@ export class MenuItemsDataService {
     new MenuItem("Kunafa",
       88,
       "jklhlkhl",
-      "https://cleobuttera.com/wp-content/uploads/2018/05/kunafa-rolls-mood.jpg",
-      0, 0, 5, false),
+      "https://cleobuttera.com/wp-content/uploads/2018/05/kunafa-rolls-mood.jpg", 0, 0, 4,false),
     new MenuItem("Kataif", 99, "jklhlkhl",
-      "https://savoryandsweetfood.files.wordpress.com/2013/07/20130713-013757.jpg", 1, 0, 5, false),
+      "https://savoryandsweetfood.files.wordpress.com/2013/07/20130713-013757.jpg", 1, 0, 4, false),
     new MenuItem("Mansaf", 99, "jklhlkhl",
-      "https://www.cheftariq.com/wp-content/uploads/2020/04/mansaf-4-1-500x500.jpg", 1, 0, 5, false),
+      "https://www.cheftariq.com/wp-content/uploads/2020/04/mansaf-4-1-500x500.jpg", 2, 1, 5, false),
     new MenuItem("Maklouba", 99, "jklhlkhl",
-      "https://www.nestle-family.com/sites/site.prod1.nestle-family.com/files/2019-04/8184---Chicken-Maklouba-with-Eggplant_2.jpg", 1, 0, 5, false)
+      "https://www.nestle-family.com/sites/site.prod1.nestle-family.com/files/2019-04/8184---Chicken-Maklouba-with-Eggplant_2.jpg", 3, 1, 5, false),
+      new MenuItem("Maklouba", 99, "jklhlkhl",
+      "https://www.nestle-family.com/sites/site.prod1.nestle-family.com/files/2019-04/8184---Chicken-Maklouba-with-Eggplant_2.jpg", 4, 2, 5, false)
 
 
 ];
 
   constructor() { }
 
-  getMenuItems(): MenuItem[] {
-    return this.menuItems;
+  getMenuItemsOfRes(resId): MenuItem[] {
+    let _items: MenuItem[] = [];
+    this.menuItems.forEach(element => {
+      if (element.rest_id == resId) {
+        _items.push(element);
+      }
+    });
+    return _items;
   }
 
   addMenuItem(menuItem:MenuItem){

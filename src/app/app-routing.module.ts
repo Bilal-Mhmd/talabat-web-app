@@ -10,7 +10,7 @@ import { ListOrderedMenuItemsComponent } from './list-ordered-menu-items/list-or
 import { ListOrdersComponent } from './list-orders/list-orders.component';
 
 const routes: Routes = [
-  {path:'add_item/:resid', component: AddMenuItemFormComponent},
+  {path:'add_item/:resid/:menuid', component: AddMenuItemFormComponent},
   {path: 'add_restaurant', component: AddRestaurantFormComponent },
   {path:'edit_menu_item/:resid/:id', component:EditMenuItemFormComponent},
   {path:'edit_restaurant/:id', component:EditRestaurantFormComponent},

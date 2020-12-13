@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { element } from 'protractor';
 import { MenuItem } from '../models/MenuItem';
 
 @Injectable({
@@ -19,25 +20,20 @@ export class OrdersListDataService {
   getOrdersOfRes(res_id:number){
     let ordersList:MenuItem[]=[];
 
-    for(let i=0;i<this.Orders.length;i++)
-    {
-      if(this.Orders[i].rest_id == res_id)
-      {
-        ordersList.push(this.Orders[i]);
+    this.Orders.forEach(element => {
+      if (element.rest_id == res_id) {
+        ordersList.push(element);
       }
-    }
+    })
     return ordersList;
   }
-  deleteOrder(order:MenuItem)
+  deleteOrder(res_id:number, order:MenuItem)
   {
-    for(let i=0; i<this.Orders.length;i++)
-    {
-      if(this.Orders[i] == order)
-      {
-        this.Orders.splice(i,1);
-        this.Orders[i].ordered=false;
+    this.Orders.forEach(function(element){
+      if (element.rest_id == res_id && element == order) {
+        this.Orders.splice(element, 1);
       }
-    }
+    })
   }
   rateOrder(rating:number,order:MenuItem)
   {

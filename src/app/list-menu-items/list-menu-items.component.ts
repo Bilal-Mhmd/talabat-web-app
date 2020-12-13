@@ -25,10 +25,8 @@ constructor(
 
     this.route.params.subscribe(
         (params: Params) => {this._id = +params['resid'];}
-      );
-    this._menu_items = this.menuItemsService.getMenuItemsOfRest(this._id);
-    
-    this._menu_items = this.menuItemsService.getMenuItems();
+      );    
+    this._menu_items = this.menuItemsService.getMenuItemsOfRes(this._id);
     this._menu_items.forEach(function (menu, index) {
       menu.id = index;
     });
@@ -40,21 +38,19 @@ constructor(
   }
 
   addMenuItem(){
-    this._router.navigateByUrl(`/add_item/${this._id}`);
+    this._router.navigateByUrl(`/add_item/${this._id}/${this._id}`);
     console.log("navigation to menu item with res id "+this._id);
   }
-  orderMenuItem(id: number, element) {
-    this.menuItemsService.menuItems[id].ordered = true;
+  orderMenuItem(id: number) {
+    this._menu_items[id].ordered = true;
     let newOrder: MenuItem = this._menu_items[id];
-    this.ordersListService.Orders.push(newOrder);
-    //element.textContent = "Cancel Order";
+    this.ordersListService.addOrder(newOrder);
   }
 
-  deleteOrderMenuItem(id: number, element) {
-    this.menuItemsService.menuItems[id].ordered = false;
+  deleteOrderMenuItem(id: number) {
+    this._menu_items[id].ordered = false;
     let delOrder: MenuItem = this._menu_items[id];
-    this.ordersListService.Orders.splice(id, 1);
-    //element.textContent = "Order";
+    this.ordersListService.addOrder(delOrder);
   }
 
   showOrders() {
