@@ -27,12 +27,21 @@ export class ListOrderedMenuItemsComponent implements OnInit {
     this._restaurants = this.restaurantsListService.restaurants;
   }
 
-  deleteOrderMenuItem(id: number, res:Restaurant) {
-  
+  deleteOrder(id: number, res_id: number) {
+    this.ordersListService.deleteOrder(res_id, id);
   }
 
   getResOrders(res: Restaurant): MenuItem[]{
     return this.ordersListService.getOrdersOfRes(res.id);
+    
+  }
+
+  backToMenu() {
+    
+  }
+
+  goTOMain() {
+    
   }
 
 }

@@ -48,9 +48,8 @@ constructor(
   }
 
   deleteOrderMenuItem(id: number) {
-    this._menu_items[id].ordered = false;
-    let delOrder: MenuItem = this._menu_items[id];
-    this.ordersListService.addOrder(delOrder);
+    this.menuItemsService.menuItems[id].ordered= false;
+    this.ordersListService.deleteOrder(this._id, id);
   }
 
   showOrders() {

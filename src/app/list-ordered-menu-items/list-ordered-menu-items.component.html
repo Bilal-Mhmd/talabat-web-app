@@ -6,7 +6,7 @@
                 <div class="card" style="width: 18rem;">
                     <img 
                         class="card-img-top"
-                        [src]='i.image' alt="Card image cap"
+                        [src]='i.image' alt="image not found!"
                     >
                     <div class="card-body">
                     <h5 class="card-title">
@@ -33,12 +33,13 @@
                             <ng-template #ordered>
                                 <button 
                                     class="btn btn-primary btn-lg btn-block"
-                                    (click)="deleteOrderMenuItem(i.id, res)" 
+                                    (click)="deleteOrder(i.id, res.id)" 
                                     >
                                 delete order
                                 </button>
                             </ng-template>
                     </li>
+
                     <li class="list-group-item">  
 
                     </li>

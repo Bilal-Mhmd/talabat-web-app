@@ -36,7 +36,7 @@ export class ListOrdersComponent implements OnInit {
     deleteOrderMenuItem(id: number, element) {
       this.menuItemsService.menuItems[id].ordered = false;
       let delOrder: MenuItem = this._orsers[id];
-      this.ordersListService.Orders.splice(id, 1);
+      this.ordersListService.deleteOrder(this._id, id);
       //element.textContent = "Order";
     }
 
