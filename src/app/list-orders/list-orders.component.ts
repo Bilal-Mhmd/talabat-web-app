@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MenuItem } from '../models/MenuItem';
 import { MenuItemsDataService } from '../services/menu-items-data.service';
-import { OrdersListDataService } from '../services/orders-list-data.service';
 
 @Component({
   selector: 'app-list-orders',
@@ -11,39 +10,43 @@ import { OrdersListDataService } from '../services/orders-list-data.service';
 })
 export class ListOrdersComponent implements OnInit {
 
-  _orsers : MenuItem[]=[];
+  _orders : MenuItem[]=[];
   _id:number;
   constructor(
     private route: ActivatedRoute,
     private _router: Router,
     private menuItemsService:MenuItemsDataService,
-    private ordersListService:OrdersListDataService){}
+    ){}
 
     ngOnInit(): void {
 
       this.route.params.subscribe(
           (params: Params) => {this._id = +params['resid'];}
         );
-        this._orsers=this.ordersListService.getOrdersOfRes(this._id);
+        this._orders=this.menuItemsService.getRestOrderedMenuItems(this._id);
     }
-    orderMenuItem(id: number, element) {
-      this.menuItemsService.menuItems[id].ordered = true;
-      let newOrder: MenuItem = this._orsers[id];
-      this.ordersListService.Orders.push(newOrder);
-      //element.textContent = "Cancel Order";
+    orderMenuItem(id: number) {
+      this._orders[id].ordered = true;
+      let newOrder: MenuItem = this._orders[id];
+      //this.ordersListService.addOrder(newOrder);
+      this.menuItemsService.setMenuItem(this._id,id,newOrder);
     }
   
-    deleteOrderMenuItem(id: number, element) {
-      this.menuItemsService.menuItems[id].ordered = false;
-      let delOrder: MenuItem = this._orsers[id];
-      this.ordersListService.deleteOrder(this._id, id);
-      //element.textContent = "Order";
+    deleteOrderMenuItem(id: number) {
+      this._orders[id].ordered = false;
+      let newOrder: MenuItem = this._orders[id];
+      this.menuItemsService.setMenuItem(this._id, id, newOrder);
+      this._orders =this._orders.filter(function(ele){ 
+        return ele != newOrder; 
+    });
     }
 
     goTOMain(){
       this._router.navigateByUrl(`list_restaurants`);
     }
-  backToMenu() {
+
+    backToMenu() {
     this._router.navigateByUrl(`list_menu_items/${this._id}`)
     }
+
 }

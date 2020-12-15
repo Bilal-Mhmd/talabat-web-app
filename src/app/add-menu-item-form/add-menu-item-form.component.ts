@@ -21,14 +21,16 @@ export class AddMenuItemFormComponent implements OnInit {
 
   addMenuItem(f:NgForm)
   {
+    
     this.MenuItemsService.addMenuItem(
       new MenuItem(
         f.value.MIName,
         f.value.price,
         f.value.description,
         f.value.image,
-        1000,
-        this._id));
+        this.MenuItemsService.getLengthOfResMI(this._id),
+        this._id,10,false));
     this._router.navigateByUrl(`list_menu_items/${this._id}`);
   }
 }
+

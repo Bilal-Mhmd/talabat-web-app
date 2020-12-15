@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params,Router } from '@angular/router';
 import { MenuItem } from '../models/MenuItem';
 import { MenuItemsDataService } from '../services/menu-items-data.service';
-import { OrdersListDataService } from '../services/orders-list-data.service';
 
 
 @Component({
@@ -19,7 +18,7 @@ constructor(
   private route: ActivatedRoute,
   private _router: Router,
   private menuItemsService : MenuItemsDataService,
-  private ordersListService:OrdersListDataService){}
+  ){}
 
   ngOnInit(): void {
 
@@ -27,9 +26,9 @@ constructor(
         (params: Params) => {this._id = +params['resid'];}
       );    
     this._menu_items = this.menuItemsService.getMenuItemsOfRes(this._id);
-    this._menu_items.forEach(function (menu, index) {
-      menu.id = index;
-    });
+    //this._menu_items.forEach(function (menu, index) {
+     // menu.id = index;
+    //});
   }
 
   editMenuItem(id:number)
@@ -44,12 +43,14 @@ constructor(
   orderMenuItem(id: number) {
     this._menu_items[id].ordered = true;
     let newOrder: MenuItem = this._menu_items[id];
-    this.ordersListService.addOrder(newOrder);
+    //this.ordersListService.addOrder(newOrder);
+    this.menuItemsService.setMenuItem(this._id,id,newOrder);
   }
 
   deleteOrderMenuItem(id: number) {
-    this.menuItemsService.menuItems[id].ordered= false;
-    this.ordersListService.deleteOrder(this._id, id);
+    this._menu_items[id].ordered = false;
+    let newOrder: MenuItem = this._menu_items[id];
+    this.menuItemsService.setMenuItem(this._id,id,newOrder);
   }
 
   showOrders() {

@@ -29,7 +29,7 @@ export class EditMenuItemFormComponent implements OnInit {
 
   editMenuItem(f:NgForm){
 
-    this.newMenuItem=new MenuItem(f.value.MIName,f.value.price,f.value.description,f.value.image,this.id,this.res_id);
+    this.newMenuItem=new MenuItem(f.value.MIName,f.value.price,f.value.description,f.value.image,this.id,this.res_id,10,false);
     this.MenuItemService.setMenuItem(this.res_id,this.id,this.newMenuItem);
     this.router.navigateByUrl(`list_menu_items/${this.res_id}`);
   }

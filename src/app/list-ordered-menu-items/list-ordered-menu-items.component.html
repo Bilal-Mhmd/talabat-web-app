@@ -15,6 +15,15 @@
                     <p class="card-text">
                         {{i.descr}}
                     </p>
+                    <p class="card-text">
+                    {{i.id}}
+                </p>
+                <p class="card-text">
+                    {{i.rest_id}}
+                </p>
+                <p class="card-text">
+                    {{i.ordered}}
+                </p>
                     </div>
                     <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -25,7 +34,7 @@
                             <ng-template #notordered>
                                 <button
                                     class="btn btn-primary btn-lg btn-block" 
-                                    (click)="orderMenuItem(i.id, res)" 
+                                    (click)="orderMenuItem(i)" 
                                     >       
                                 Order
                                 </button>
@@ -33,7 +42,7 @@
                             <ng-template #ordered>
                                 <button 
                                     class="btn btn-primary btn-lg btn-block"
-                                    (click)="deleteOrder(i.id, res.id)" 
+                                    (click)="deleteOrder(i)" 
                                     >
                                 delete order
                                 </button>
@@ -49,20 +58,12 @@
         </div>
     </div>
 </div>     
-
     <div>
         <button 
             class="btn btn-dark btn-lg btn-block" 
             (click)="goTOMain()" 
             >
             Back to Restaurants List
-        </button>
-
-        <button 
-            class="btn btn-dark btn-lg btn-block" 
-            (click)="backToMenu()" 
-            >
-            Back to Menu List
         </button>
     </div>
 
