@@ -36,9 +36,10 @@ export class ListOrdersComponent implements OnInit {
       this._orders[id].ordered = false;
       let newOrder: MenuItem = this._orders[id];
       this.menuItemsService.setMenuItem(this._id, id, newOrder);
-      this._orders =this._orders.filter(function(ele){ 
-        return ele != newOrder; 
-    });
+    //   this._orders =this._orders.filter(function(ele){ 
+    //     return ele != newOrder; 
+    // });
+      delete this._orders[id];
     }
 
     goTOMain(){
